@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>رحلة التعلم الرقمي - أولي ثانوي</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+    <div class="brand">رحلة التعلم الرقمي</div>
+    <nav>
+        <button onclick="showPage('student')">بيانات الطالب</button>
+        <button onclick="showPage('cover')">غلاف المحتوى</button>
+        <button onclick="showPage('home')">الرئيسية والدروس</button>
+        <button onclick="showPage('certificate')">الشهادة</button>
+    </nav>
+    <div class="hero">
+        <span class="tag">بيئة تعليمية تفاعلية</span>
+        <h1>اكتشف المعرفة.. وابدأ رحلة التعلم</h1>
+        <p>مادة البرمجة وتكنولوجيا المعلومات - صفوف المرحلة الثانوية</p>
+        <p>تعلم، تفاعل، اختبر معلوماتك، وتابع تقدمك خطوة بخطوة.</p>
+    </div>
+</header>
+
+<main>
+
+    <!-- الصفحة الأولى الافتتاحية: بيانات الطالب ومُعدّة الموقع -->
+    <section id="student" class="page active">
+        <div class="panel">
+            <h2>بيانات الطالب ومُعدّة الموقع</h2>
+            <p>مرحباً بك. يرجى تسجيل بياناتك للاستمرار في الرحلة التعليمية.</p>
+
+            <div class="developer-card" style="background: #f0f6ff; padding: 20px; border-radius: 12px; margin-bottom: 20px; border-right: 5px solid #2864a8;">
+                <p><strong>إعداد الطالبة:</strong> بسنت مصطفى احمد رمزي عبدالله</p>
+                <p><strong>الكلية:</strong> كلية التربية النوعية - قسم تكنولوجيا التعليم</p>
+                <p><strong>الفرقة الدراسية:</strong> الفرقة الثالثة</p>
+                <p><strong>تحت إشراف:</strong> دكتور عصام زيد</p>
+            </div>
+
+            <form id="studentForm">
+                <label>اسم الطالب/ة</label>
+                <input id="studentName" type="text" placeholder="اكتب اسمك هنا" required>
+
+                <label>الصف الدراسي</label>
+                <input id="studentGrade" type="text" placeholder="مثال: الصف الأول الثانوي" required>
+
+                <button type="submit" class="primary">حفظ البيانات والانتقال</button>
+            </form>
+
+            <p id="studentMessage" style="margin-top: 15px; font-weight: bold; color: #18835d;"></p>
+
+            <!-- زرار الانتقال لصفحة الغلاف والمحتوى -->
+            <div style="margin-top: 30px; text-align: center;">
+                <button class="primary wide" onclick="showPage('cover')" style="padding: 15px; font-size: 16px;">
+                    التالي: الانتقال إلى صفحة الغلاف والمحتوى ⬅
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- الصفحة الثانية: غلاف المحتوى -->
+    <section id="cover" class="page">
+        <div class="panel cover-panel">
+            <h2>غلاف المحتوى التعليمي</h2>
+            <div class="cover-box" style="text-align: center; padding: 40px 20px; background: linear-gradient(135deg, #f0f6ff, #e5eaf1); border-radius: 14px; margin-top: 20px;">
+                <span class="tag" style="background: #2864a8; color: white; padding: 5px 15px; border-radius: 20px;">كتاب المادة الرقمي</span>
+                <h1 style="color: #142e4f; margin-top: 15px; font-size: 30px;">أساسيات البرمجة وتكنولوجيا المعلومات</h1>
+                <p style="color: #555; max-width: 700px; margin: 15px auto; line-height: 1.8;">
+                    يهدف هذا الموقع التعليمي التفاعلي المخصص لطلاب الصف الأول الثانوي إلى تبسيط مفاهيم تكنولوجيا المعلومات، البيانات، الوسائط، أمن البيانات، الشبكات، وقواعد البيانات، من خلال بيئة رقمية متكاملة تضم 10 دروس شاملة واختبارات تفاعلية لتعزيز التعلم الذاتي.
+                </p>
+                <button class="primary" onclick="showPage('home')" style="margin-top: 20px; padding: 12px 25px; font-size: 16px;">
+                    الدخول إلى محتوى الدروس والوحدات ⬅
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- الصفحة الرئيسية: الوحدات والـ 10 دروس -->
+    <section id="home" class="page">
+
+        <div class="welcome panel">
+            <h2 id="welcomeName">أهلًا بك في بيئة التعلم التفاعلية!</h2>
+            <p>اختر الوحدة والدرس وابدأ رحلة التعلم الرقمي.</p>
+        </div>
+
+        <div class="panel progress-card">
+            <h2>مؤشر تقدمك التعليمي</h2>
+            <p id="progressText">أتممت 0 من 10 دروس</p>
+
+            <div class="progress-track">
+                <div id="progressFill" class="progress-fill"></div>
+            </div>
+
+            <h3 id="progressPercent">0% إنجاز</h3>
+            <p id="completedNames">لم يتم إكمال أي درس بعد.</p>
+        </div>
+
+        <h2 class="section-title">فهرس الوحدات والدروس (10 دروس)</h2>
+
+        <!-- الوحدة الأولى -->
+        <div class="unit-section" style="margin-top: 30px;">
+            <h2 style="color: #2864a8; border-bottom: 2px solid #2864a8; padding-bottom: 8px; margin-bottom: 20px;">الوحدة الأولى: المعلومات والوسائط الرقمية</h2>
+            <div class="lessons">
+                <article class="card">
+                    <div class="number">01</div>
+                    <h3>المعلومات والوسائط</h3>
+                    <p>تعرف على البيانات والمعلومات والمعرفة وخصائصها وأنواع الوسائط.</p>
+                    <span id="status0" class="status">لم يبدأ بعد</span>
+                    <button class="primary" onclick="openLesson(0)">ابدأ الدرس والشرح</button>
+                </article>
+                <article class="card">
+                    <div class="number">02</div>
+                    <h3>البيانات الشخصية</h3>
+                    <p>تعرف على البيانات الشخصية والحساسة والخصوصية وأهمية الحماية.</p>
+                    <span id="status1" class="status">لم يبدأ بعد</span>
+                    <button class="primary" onclick="openLesson(1)">ابدأ الدرس والشرح</button>
+                </article>
+                <article class="card">
+                    <div class="number">03</div>
+                    <h3>حقوق الملكية الفكرية</h3>
+                    <p>تعرف على حقوق المؤلف والملكية الصناعية وحماية الإبداع والابتكار.</p>
+                    <span id="status2" class="status">لم يبدأ بعد</span>
+                    <button class="primary" onclick="openLesson(2)">ابدأ الدرس والشرح</button>
+                </article>
+            </div>
+        </div>
+
+        <!-- الوحدة الثانية -->
+        <div class="unit-section" style="margin-top: 40px;">
+            <h2 style="color: #2864a8; border-bottom: 2px solid #2864a8; padding-bottom: 8px; margin-bottom: 20px;">الوحدة الثانية: أمن المعلومات والشبكات</h2>
+            <div class="lessons">
+                <article class="card">
+                    <div class="number">04</div>
+                    <h3>أمن المعلومات والتهديدات</h3>
+                    <p>مفهوم أمن المعلومات، السرية، السلامة، الإتاحة، وأبرز المخاطر الرقمية.</p>
+                    <span id="status3" class="status">لم يبدأ بعد</span>
+                    <button class="primary" onclick="openLesson(3)">ابدأ الدرس والشرح</button>
+                </article>
+                <article class="card">
+                    <div class="number">05</div>
+                    <h3>شبكات الكمبيوتر والإنترنت</h3>
+                    <p>أنواع الشبكات المحلية والواسعة وأهم بروتوكولات الاتصال ونقل البيانات.</p>
+                    <span id="status4" class="status">لم يبدأ بعد</span>
+                    <button class="primary" onclick="openLesson(4)">ابدأ الدرس والشرح</button>
+                </article>
+                <article class="card">
+                    <div class="number">06</div>
+                    <h3>التصفح الآمن ومكافحة البرمجيات الخبيثة</h3>
+                    <p>طرق الوقاية من الفيروسات والبرمجيات الضارة وأساليب الاحتيال الإلكتروني.</p>
+                    <span id="status5" class="status">لم يبدأ بعد</span>
+                    <button class="primary" onclick="openLesson(5)">ابدأ الدرس والشرح</button>
+                </article>
+            </div>
+        </div>
+
+        <!-- الوحدة الثالثة -->
+        <div class="unit-section" style="margin-top: 40px;">
+            <h2 style="color: #2864a8; border-bottom: 2px solid #2864a8; padding-bottom: 8px; margin-bottom: 20px;">الوحدة الثالثة: أساسيات قواعد البيانات وحل المشكلات</h2>
+            <div class="lessons">
+                <article class="card">
+                    <div class="number">07</div>
+                    <h3>مفهوم قواعد البيانات</h3>
+                    <p>الفرق بين الملفات التقليدية وقواعد البيانات، وأهمية الجداول والحقول.</p>
+                    <span id="status6" class="status">لم يبدأ بعد</span>
+                    <button class="primary" onclick="openLesson(6)">ابدأ الدرس والشرح</button>
+                </article>
+                <article class="card">
+                    <div class="number">08</div>
+                    <h3>جداول وقواعد البيانات العلائقية</h3>
+                    <p>مفاهيم المفتاح الأساسي، السجلات، العلاقات بين الجداول المختلفة.</p>
+                    <span id="status7" class="status">لم يبدأ بعد</span>
+                    <button class="primary" onclick="openLesson(7)">ابدأ الدرس والشرح</button>
+                </article>
+                <article class="card">
+                    <div class="number">09</div>
+                    <h3>حل المشكلات وخرائط التدفق</h3>
+                    <p>مراحل حل المشكلة، خوارزميات العمل، وتصميم خرائط التدفق (Flowcharts).</p>
+                    <span id="status8" class="status">لم يبدأ بعد</span>
+                    <button class="primary" onclick="openLesson(8)">ابدأ الدرس والشرح</button>
+                </article>
+                <article class="card">
+                    <div class="number">10</div>
+                    <h3>مقدمة في لغات البرمجة</h3>
+                    <p>مفهوم البرمجة، لغات المستوى العالي والمنخفض، وأساسيات كتابة الكود.</p>
+                    <span id="status9" class="status">لم يبدأ بعد</span>
+                    <button class="primary" onclick="openLesson(9)">ابدأ الدرس والشرح</button>
+                </article>
+            </div>
+        </div>
+
+        <div class="panel certificate-preview" style="margin-top: 40px;">
+            <h2>شهادة إتمام التعلم</h2>
+            <p>أكمل جميع الدروس العشرة والاختبارات للحصول على شهادة إتمام قابلة للطباعة وعرضها.</p>
+            <button class="primary" onclick="showPage('certificate')">عرض الشهادة</button>
+        </div>
+
+    </section>
+
+    <!-- صفحة شرح الدرس المفصل -->
+    <section id="lessonPage" class="page">
+        <div class="panel">
+            <div id="lessonContent"></div>
+
+            <div class="activity">
+                <h3>فكري وأجيبي (نشاط تفاعلي)</h3>
+                <p id="activityText"></p>
+            </div>
+
+            <button class="primary wide" onclick="startQuiz()">
+                ابدأ اختبار على الدرس
+            </button>
+
+            <button class="secondary" onclick="showPage('home')">
+                العودة للدروس
+            </button>
+        </div>
+    </section>
+
+    <!-- صفحة الاختبار -->
+    <section id="quizPage" class="page">
+        <div class="panel">
+            <h2 id="quizTitle">اختبار الدرس</h2>
+            <p>اختر إجابة واحدة صحيحة لكل سؤال.</p>
+            <form id="quizForm"></form>
+
+            <button class="primary wide" onclick="gradeQuiz()">
+                تصحيح الإجابات وإظهار النتيجة
+            </button>
+
+            <div id="quizResult"></div>
+        </div>
+    </section>
+
+    <!-- صفحة الشهادة -->
+    <section id="certificate" class="page">
+        <div class="panel">
+            <h2>شهادة إتمام التعلم</h2>
+            <div id="certificateArea"></div>
+        </div>
+    </section>
+
+</main>
+
+<footer>
+    بيئة تعليمية تفاعلية - مادة البرمجة والذكاء الاصطناعي - إعداد: بسنت مصطفى
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
